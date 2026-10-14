@@ -65,8 +65,14 @@ if (!isset($_SESSION["host"])) {
     function hitungPerOrang() {
       const harga = document.getElementById("hargaItem").value;
       const jumlahOrang = document.getElementById("jumlahOrangItem").value;
+
+      if (!harga || !jumlahOrang || jumlahOrang <= 0) {
+        document.getElementById("hasilHitung").innerText = "Masukkan harga dan jumlah orang dengan benar!";
+        return;
+      }
+
       const perOrang = harga / jumlahOrang;
-      document.getElementById("hasilSplit").innerText = "Per orang: Rp" + perOrang;
+      document.getElementById("hasilHitung").innerText = "Per orang: Rp" + perOrang.toLocaleString('id-ID');
     }
   </script>
 </body>
